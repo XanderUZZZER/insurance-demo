@@ -1,0 +1,18 @@
+.main-page {
+  .page-header {
+    background-color: var(--background-third-color);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    h3 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 45px;
+      letter-spacing: 1px;
+    }
+  }
+}
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}

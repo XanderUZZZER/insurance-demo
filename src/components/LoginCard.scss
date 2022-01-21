@@ -1,0 +1,109 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--background-fourth-color);
+  border-radius: 10px;
+  align-items: center;
+  background-color: var(--background-secondary-color);
+  width: 400px;
+  overflow: hidden;
+
+  .card-header {
+    background-color: var(--background-third-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    h3 {
+      font-weight: 500;
+      font-size: 40px;
+      margin: 0;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+    gap: 10px;
+    flex: 1;
+    .user-details:not(:first-child) {
+      border-top: 1px solid var(--background-third-color);
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .user-details {
+      // h4 {
+      //   margin-top: 6px;
+      //   margin-bottom: 6px;
+      //   letter-spacing: 0.7px;
+      //   font-weight: 300;
+      //   font-size: 24px;
+      // }
+      .user-details-header {
+        font-style: italic;
+        color: var(--text-secondary-color);
+      }
+      .user-details-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 15px;
+      }
+    }
+
+    .scenarios {
+      margin-top: auto;
+      border-top: 1px solid var(--background-third-color);
+    }
+    h4 {
+      margin-top: 6px;
+      margin-bottom: 6px;
+      letter-spacing: 0.7px;
+      font-weight: 300;
+      font-size: 24px;
+    }
+  }
+
+  .form-container {
+    margin-top: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-top: 20px;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+  }
+  .links-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    a:only-child {
+      margin: auto;
+    }
+  }
+  a {
+    color: var(--text-third-color);
+    text-decoration: none;
+  }
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-110%);
+}

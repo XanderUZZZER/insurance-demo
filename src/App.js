@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import PrivateRoute from './components/PrivateRoute';
+import { companiesData } from './data/companies';
+import CompaniesPage from './Views/CompaniesPage';
+import MainPage from './Views/MainPage';
 
 function App() {
+  const user = { user: true }
+  const companies = companiesData
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container' dir='rtl'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<CompaniesPage companies={companies} />} />
+          <Route path='/:companyId' element={<MainPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

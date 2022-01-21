@@ -1,8 +1,19 @@
+:root {
+  --background-primary-color: #000000;
+  --background-secondary-color: #52057b;
+  --background-third-color: #892cdc;
+  --background-fourth-color: #bc6ff1;
+
+  --text-primary-color: #fff;
+  --text-secondary-color: rgba(255, 255, 255, 0.6);
+  --text-third-color: rgba(255, 255, 255, 0.3);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
