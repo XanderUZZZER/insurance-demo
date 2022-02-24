@@ -6,3 +6,7 @@ body {
   background-color: var(--background-primary-color);
   color: var(--text-primary-color);
 }
+
+.app-container {
+  padding-top: 48px;
+}

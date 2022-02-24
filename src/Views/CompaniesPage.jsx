@@ -1,15 +1,21 @@
-import React from 'react'
-import LoginCard from '../components/LoginCard'
+// import LoginCard from '../components/LoginCard'
+import CompanyInfoCard from '../components/CompanyInfoCard'
 import './CompaniesPage.css'
 
 const CompaniesPage = ({ companies }) => {
-  console.log(companies)
   return (
-    <div className='companies-container'>
-      {companies.map(company => (
-        <LoginCard key={company.id} company={company} />
-      ))}
-    </div>
+    <>
+      <div className='companies-container'>
+        {companies.map(company => (
+          <CompanyInfoCard key={company.id} company={company} />
+        ))}
+      </div>
+      {/* <div className='companies-container'>
+        {companies.map(company => (
+          <LoginCard key={company.id} company={company} />
+        ))}
+      </div> */}
+    </>
   )
 }
 

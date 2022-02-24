@@ -7,6 +7,7 @@
   --text-primary-color: #fff;
   --text-secondary-color: rgba(255, 255, 255, 0.6);
   --text-third-color: rgba(255, 255, 255, 0.3);
+  --text-fourth-color: #000;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');

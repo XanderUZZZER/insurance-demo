@@ -1,75 +1,55 @@
-import { authFieldType } from '../types/authFieldTypes';
-import { userType } from '../types/userTypes';
+import { authFieldType } from '../types/authFieldTypes'
 
-let id = 1
-const getId = () => id++
 export const companiesData = [
   {
-    id: 101,
-    name: 'Company 101',
+    id: 1001,
+    name: 'Srulik',
+    authFields: [authFieldType.userName, authFieldType.password, authFieldType.answer],
+    user: {
+      userName: 'user',
+      password: 'password',
+      answer: 'answer',
+    },
+    reports: [1001],
+    sms: '111111',
+  },
+  {
+    id: 1002,
+    name: 'Lukhanin',
     authFields: [
       authFieldType.userName,
       authFieldType.password,
       authFieldType.vaultUserName,
-      authFieldType.vaultPassword
+      authFieldType.vaultPassword,
+      authFieldType.answer,
     ],
-    user:
-    {
+    user: {
       userName: 'user',
       password: 'password',
       vaultUserName: 'vaultUser',
-      vaultPassword: 'vaultPassword'
+      vaultPassword: 'vaultPassword',
+      answer: 'answer',
+    },
+    reports: [1002, 1003],
+    sms: '111111',
+  },
+  {
+    id: 1003,
+    name: 'Ledok',
+    authFields: [authFieldType.userName, authFieldType.password, authFieldType.answer],
+    user: {
+      userName: 'user',
+      password: 'password',
+      answer: 'answer',
     },
     elementaryUser: {
       userName: 'elementaryUser',
       password: 'password',
-      vaultUserName: 'vaultUser',
-      vaultPassword: 'vaultPassword'
+      answer: 'answer',
     },
-    reports: [1, 2, 3],
-    elementaryReports: [1, 2]
-  },
-  {
-    id: 102,
-    name: 'Company 102',
-    authFields: [
-      authFieldType.userName,
-      authFieldType.password,
-      authFieldType.vaultUserName,
-      authFieldType.vaultPassword
-    ],
-    user:
-    {
-      userName: 'user',
-      password: 'password',
-      vaultUserName: 'vaultUser',
-      vaultPassword: 'vaultPassword'
-    },
-    elementaryUser: {
-      userName: 'elementaryUser',
-      password: 'password',
-      vaultUserName: 'vaultUser',
-      vaultPassword: 'vaultPassword'
-    },
-    reports: [1, 2],
-    elementaryReports: [1]
-  },
-  {
-    id: 103,
-    name: 'Company 103',
-    authFields: [
-      authFieldType.userName,
-      authFieldType.password,
-      authFieldType.vaultUserName,
-      authFieldType.vaultPassword
-    ],
-    user:
-    {
-      userName: 'user',
-      password: 'password',
-      vaultUserName: 'vaultUser',
-      vaultPassword: 'vaultPassword'
-    },
-    reports: [1, 2]
+    reports: [1004, 1005, 1006],
+    elementaryReports: [1004],
+    sms: '111111',
+    elementarySms: '111111',
   },
 ]

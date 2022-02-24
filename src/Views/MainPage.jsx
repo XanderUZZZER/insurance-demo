@@ -9,8 +9,7 @@ const MainPage = () => {
   const [searchParams] = useSearchParams()
   const company = companiesData.find(company => company.id == params.companyId)
   const auth = searchParams.get('auth')
-  const reportsType =
-    auth === authType.elementary ? `${authType.elementary}Reports` : 'reports'
+  const reportsType = auth === authType.elementary ? `${authType.elementary}Reports` : 'reports'
 
   return (
     <div className='main-page'>
@@ -21,10 +20,12 @@ const MainPage = () => {
       </header>
       <div className='page-content'>
         <div className='container'>
-          <h4>Main Page: {params.companyId}</h4>
+          <h4>Reports Page: {company.name}</h4>
+          <h4>Auth Type: {auth}</h4>
+          <h4>Reports Count: {company[reportsType].length}</h4>
           {company[reportsType].map(report => (
             <div key={report}>
-              <button>{report}</button>
+              <button>Report #{report}</button>
             </div>
           ))}
           <Link to='/'>Home</Link>

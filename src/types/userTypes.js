@@ -1,4 +1,4 @@
 export const userType = {
-  regular: 'regular',
-  elementary: 'elementary'
+  regular: 'regularUser',
+  elementary: 'elementaryUser'
 }
