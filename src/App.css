@@ -10,3 +10,7 @@ body {
 .app-container {
   padding-top: 48px;
 }
+
+.text-red {
+  color: red;
+}

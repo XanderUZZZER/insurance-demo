@@ -33,12 +33,16 @@ const Login = () => {
         field === authFieldType.vaultUserName ||
         field === authFieldType.vaultPassword
     )
-    .reduce((arr, currfield) => ({ ...arr, [currfield]: '' }), {})
+    //.reduce((arr, currfield) => ({ ...arr, [currfield]: '' }), {})
+    .reduce(
+      (arr, currfield) => ({ ...arr, [currfield]: company.user[currfield] }),
+      {}
+    )
   const [credentials, setCredentials] = useState(credentialsInitial)
   const [loginError, setLoginError] = useState(null)
   const [auth, setAuth] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
-  const [sms, setSms] = useState('')
+  const [sms, setSms] = useState(company.sms)
   const [correctSms, setCorrectSms] = useState(false)
   const [smsError, setSmsError] = useState(null)
   const [vaultLoginError, setVaultLoginError] = useState(null)
@@ -85,7 +89,10 @@ const Login = () => {
 
   const vaultLoginHandler = e => {
     e.preventDefault()
-    if (scenario.value === scanScenario.vaultExpired) {
+    if (
+      scenario.value === scanScenario.vaultExpired ||
+      scenario.value === scanScenario.vaultLoginError
+    ) {
       setVaultLoginError(scenario.text)
     } else if (
       company.user.vaultUserName === credentials['vaultUserName'] &&

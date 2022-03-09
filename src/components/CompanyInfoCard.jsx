@@ -15,7 +15,8 @@ const CompanyInfoCard = ({ company }) => {
   const navigate = useNavigate()
 
   const selectScenario = e => setScenario(scenarioType[e.target.value])
-  const selectCompany = () => navigate(`/login?company=${company.id}&scenario=${scenario.value}`)
+  const selectCompany = () =>
+    navigate(`/login?company=${company.id}&scenario=${scenario.value}`)
 
   return (
     <div className='company-info-card'>
@@ -23,7 +24,13 @@ const CompanyInfoCard = ({ company }) => {
         <h3>{company.name}</h3>
       </div>
       {regularUser && (
-        <UserDetails heading={'Regular User Details'} company={company} user={regularUser} reports={regularReports} sms={regularSms} />
+        <UserDetails
+          heading={'Regular User Details'}
+          company={company}
+          user={regularUser}
+          reports={regularReports}
+          sms={regularSms}
+        />
       )}
       {elementaryUser && (
         <UserDetails
@@ -34,16 +41,27 @@ const CompanyInfoCard = ({ company }) => {
           sms={elementarySms}
         />
       )}
-      <div className='company-info-scenarios company-info-container' style={{ color: 'red' }}>
-        <select name='scenarios' id={`scenarios-${company.id}`} value={scenario.value} onChange={selectScenario}>
+      <div
+        className='company-info-scenarios company-info-container'
+        style={{ color: 'red' }}
+      >
+        <select
+          name='scenarios'
+          id={`scenarios-${company.id}`}
+          value={scenario.value}
+          onChange={selectScenario}
+        >
           {Object.entries(scenarioType).map(([k, v]) => (
             <option value={v.value} key={k} name={`scenario-${v.value}`}>
-              {v.text}
+              {`${v.text} - (${v.value})`}
             </option>
           ))}
         </select>
       </div>
-      <div className='company-info-select-btn company-info-container' style={{ color: 'red' }}>
+      <div
+        className='company-info-select-btn company-info-container'
+        style={{ color: 'red' }}
+      >
         <button onClick={() => selectCompany()} id={`proceed-to-${company.id}`}>
           Select Scenario and Company
         </button>
