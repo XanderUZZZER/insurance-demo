@@ -11,7 +11,7 @@ export const companiesData = [
       answer: 'answer',
     },
     reports: [1001],
-    sms: '111111',
+    sms: '11111111',
   },
   {
     id: 1002,
@@ -31,7 +31,7 @@ export const companiesData = [
       answer: 'answer',
     },
     reports: [1002, 1003],
-    sms: '111111',
+    sms: '11111111',
   },
   {
     id: 1003,
@@ -47,9 +47,9 @@ export const companiesData = [
       password: 'password',
       answer: 'answer',
     },
-    reports: [1004, 1005, 1006],
+    reports: [1005, 1006],
     elementaryReports: [1004],
-    sms: '111111',
-    elementarySms: '111111',
+    sms: '11111111',
+    elementarySms: '11111111',
   },
 ]

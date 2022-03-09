@@ -15,4 +15,16 @@
 .container {
   width: 1080px;
   margin: 0 auto;
+  .reports-container {
+    display: flex;
+    flex-direction: column;
+    .report-container {
+      margin-bottom: 20px;
+      a {
+        border: 2px solid orangered;
+        padding: 6px;
+        text-decoration: none;
+      }
+    }
+  }
 }

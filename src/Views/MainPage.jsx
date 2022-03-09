@@ -9,7 +9,8 @@ const MainPage = () => {
   const [searchParams] = useSearchParams()
   const company = companiesData.find(company => company.id == params.companyId)
   const auth = searchParams.get('auth')
-  const reportsType = auth === authType.elementary ? `${authType.elementary}Reports` : 'reports'
+  const reportsType =
+    auth === authType.elementary ? `${authType.elementary}Reports` : 'reports'
 
   return (
     <div className='main-page'>
@@ -23,11 +24,19 @@ const MainPage = () => {
           <h4>Reports Page: {company.name}</h4>
           <h4>Auth Type: {auth}</h4>
           <h4>Reports Count: {company[reportsType].length}</h4>
-          {company[reportsType].map(report => (
-            <div key={report}>
-              <button>Report #{report}</button>
-            </div>
-          ))}
+          <div className='reports-container'>
+            {company[reportsType].map(report => (
+              <div key={report} className='report-container'>
+                <a
+                  href={`/files/${report}.xlsx`}
+                  download
+                  id={`report-id-${report}`}
+                >
+                  Download {report} report
+                </a>
+              </div>
+            ))}
+          </div>
           <Link to='/'>Home</Link>
         </div>
       </div>

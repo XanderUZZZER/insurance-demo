@@ -8,7 +8,7 @@ import { authType } from '../types/authType'
 import './Login.scss'
 import UserDetails from './UserDetails'
 
-const SMS_WAITING_TIMEOUT = 5 * 60 * 100 // 5 mins
+const SMS_WAITING_TIMEOUT = 5 * 60 * 1000 // 5 mins
 
 const Login = () => {
   const [searchParams] = useSearchParams()
@@ -60,9 +60,15 @@ const Login = () => {
 
   const loginHandler = e => {
     e.preventDefault()
-    if (scenario.value === scanScenario.loginError || scenario.value === scanScenario.passwordExpired) {
+    if (
+      scenario.value === scanScenario.loginError ||
+      scenario.value === scanScenario.passwordExpired
+    ) {
       setLoginError(scenario.text)
-    } else if (company.user.userName === credentials['userName'] && company.user.password === credentials['password']) {
+    } else if (
+      company.user.userName === credentials['userName'] &&
+      company.user.password === credentials['password']
+    ) {
       setAuth(authType.regular)
       setLoggedIn(true)
     } else if (
@@ -81,7 +87,10 @@ const Login = () => {
     e.preventDefault()
     if (scenario.value === scanScenario.vaultExpired) {
       setVaultLoginError(scenario.text)
-    } else if (company.user.vaultUserName === credentials['vaultUserName'] && company.user.vaultPassword === credentials['vaultPassword']) {
+    } else if (
+      company.user.vaultUserName === credentials['vaultUserName'] &&
+      company.user.vaultPassword === credentials['vaultPassword']
+    ) {
       proceedToReportsPage()
     } else if (
       company.elementaryUser &&
@@ -97,9 +106,15 @@ const Login = () => {
   const checkSmsHandler = e => {
     e.preventDefault()
     if (smsError !== scenarioType[scanScenario.smsTimeout].text) {
-      if (scenario.value === scanScenario.invalidSms || scenario.value === scanScenario.smsTimeout) {
+      if (
+        scenario.value === scanScenario.invalidSms ||
+        scenario.value === scanScenario.smsTimeout
+      ) {
         setSmsError(scenario.text)
-      } else if ((regularSms && regularSms === sms) || (elementarySms && elementarySms === sms)) {
+      } else if (
+        (regularSms && regularSms === sms) ||
+        (elementarySms && elementarySms === sms)
+      ) {
         setSmsError(null)
         setCorrectSms(true)
         if (!hasVaultUser) {
@@ -113,10 +128,15 @@ const Login = () => {
 
   const proceedToReportsPage = () => navigate(buildUrl(auth))
 
-  const buildUrl = authType => `/${company.id}?auth=${authType}&scenario=${scenario.value}`
+  const buildUrl = authType =>
+    `/${company.id}?auth=${authType}&scenario=${scenario.value}`
 
   useEffect(() => {
-    if (loggedIn && !correctSms && smsError !== scenarioType[scanScenario.smsTimeout].text) {
+    if (
+      loggedIn &&
+      !correctSms &&
+      smsError !== scenarioType[scanScenario.smsTimeout].text
+    ) {
       clearTimeout(smsWaitingTimer.current)
       smsWaitingTimer.current = setTimeout(() => {
         setSmsError(scenarioType[scanScenario.smsTimeout].text)
@@ -134,7 +154,13 @@ const Login = () => {
       </div>
       <div className='login-details'>
         {regularUser && (
-          <UserDetails heading={'Regular User Details'} company={company} user={regularUser} reports={regularReports} sms={regularSms} />
+          <UserDetails
+            heading={'Regular User Details'}
+            company={company}
+            user={regularUser}
+            reports={regularReports}
+            sms={regularSms}
+          />
         )}
         {elementaryUser && (
           <UserDetails
@@ -154,11 +180,17 @@ const Login = () => {
         <div>Enter Credentials</div>
         <form action='' className='login-credentials-form'>
           {company.authFields
-            .filter(field => field === authFieldType.userName || field === authFieldType.password)
+            .filter(
+              field =>
+                field === authFieldType.userName ||
+                field === authFieldType.password
+            )
             .map(field => (
               <input
                 key={`${field}${company.id}`}
-                type={field.toLowerCase().includes('password') ? 'password' : 'text'}
+                type={
+                  field.toLowerCase().includes('password') ? 'password' : 'text'
+                }
                 placeholder={field}
                 id={`${field}${company.id}`}
                 name={field}
@@ -201,11 +233,19 @@ const Login = () => {
           <div>Enter Vault Credentials</div>
           <form action='' className='login-credentials-form'>
             {company.authFields
-              .filter(field => field === authFieldType.vaultUserName || field === authFieldType.vaultPassword)
+              .filter(
+                field =>
+                  field === authFieldType.vaultUserName ||
+                  field === authFieldType.vaultPassword
+              )
               .map(field => (
                 <input
                   key={`${field}${company.id}`}
-                  type={field.toLowerCase().includes('password') ? 'password' : 'text'}
+                  type={
+                    field.toLowerCase().includes('password')
+                      ? 'password'
+                      : 'text'
+                  }
                   placeholder={field}
                   id={`${field}${company.id}`}
                   name={field}
@@ -216,7 +256,10 @@ const Login = () => {
             <div className='error' id={`error-vault-login-${company.id}`}>
               {vaultLoginError}
             </div>
-            <button onClick={vaultLoginHandler} id={`vault-login-${company.id}`}>
+            <button
+              onClick={vaultLoginHandler}
+              id={`vault-login-${company.id}`}
+            >
               Vault Login
             </button>
           </form>
