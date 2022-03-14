@@ -34,23 +34,15 @@ const MainPage = () => {
           <div className='reports-container'>
             {company[reportsType].map((report, i) => (
               <div key={report} className='report-container'>
-                <a
-                  href={`/files/${
-                    i === 0 && scenario.value === scanScenario.elementNotFound
-                      ? 'report-not-found'
-                      : report
-                  }.xlsx`}
-                  download
-                  id={`report-id-${
-                    i === 0 && scenario.value === scanScenario.elementNotFound
-                      ? 'report-not-found'
-                      : report
-                  }`}
-                >
-                  {i === 0 && scenario.value === scanScenario.elementNotFound
-                    ? `Report not Found`
-                    : `Download ${report} report`}
-                </a>
+                {scenario.value === scanScenario.elementNotFound && i === 0 ? (
+                  <div className='not-found'>{`Report ${report} not found`}</div>
+                ) : (
+                  <a
+                    href={`/files/${report}.xlsx`}
+                    download
+                    id={`report-id-${report}`}
+                  >{`Download ${report} report`}</a>
+                )}
               </div>
             ))}
           </div>
