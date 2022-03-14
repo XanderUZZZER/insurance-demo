@@ -52,7 +52,11 @@ const CompanyInfoCard = ({ company }) => {
           onChange={selectScenario}
         >
           {Object.entries(scenarioType).map(([k, v]) => (
-            <option value={v.value} key={k} name={`scenario-${v.value}`}>
+            <option
+              value={v.value}
+              key={k}
+              name={`scenario-${v.value}-${company.id}`}
+            >
               {`${v.text} - (${v.value})`}
             </option>
           ))}

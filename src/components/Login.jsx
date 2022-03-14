@@ -131,6 +131,9 @@ const Login = () => {
         setSmsError(scenarioType[scanScenario.invalidSms].text)
       }
     }
+    if (scenario.value === scanScenario.unexpectedPage) {
+      setSmsError(scenarioType[scanScenario.unexpectedPage].text)
+    }
   }
 
   const proceedToReportsPage = () => navigate(buildUrl(auth))
@@ -235,7 +238,7 @@ const Login = () => {
           </form>
         </div>
       )}
-      {hasVaultUser && correctSms && (
+      {hasVaultUser && correctSms && !smsError && (
         <div className='login-inputs'>
           <div>Enter Vault Credentials</div>
           <form action='' className='login-credentials-form'>

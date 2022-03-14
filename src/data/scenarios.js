@@ -7,6 +7,7 @@ export const scanScenario = {
   vaultLoginError: 5,
   vaultExpired: 6,
   elementNotFound: 7,
+  unexpectedPage: 8
 }
 
 export const scenarioType = {
@@ -18,6 +19,7 @@ export const scenarioType = {
   [scanScenario.vaultLoginError]: { text: 'Vault Login Error', value: scanScenario.vaultLoginError },
   [scanScenario.vaultExpired]: { text: 'Vault Password Expired', value: scanScenario.vaultExpired },
   [scanScenario.elementNotFound]: { text: 'Element not Found', value: scanScenario.elementNotFound },
+  [scanScenario.unexpectedPage]: { text: 'Unexpected Page', value: scanScenario.unexpectedPage },
 
   // CrentailsError
   // PasswordExpired
