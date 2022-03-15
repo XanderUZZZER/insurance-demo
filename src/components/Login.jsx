@@ -112,10 +112,12 @@ const Login = () => {
 
   const checkSmsHandler = e => {
     e.preventDefault()
+    console.log(scenario)
     if (smsError !== scenarioType[scanScenario.smsTimeout].text) {
       if (
         scenario.value === scanScenario.invalidSms ||
-        scenario.value === scanScenario.smsTimeout
+        scenario.value === scanScenario.smsTimeout ||
+        scenario.value === scanScenario.unexpectedPage
       ) {
         setSmsError(scenario.text)
       } else if (
@@ -132,6 +134,7 @@ const Login = () => {
       }
     }
     if (scenario.value === scanScenario.unexpectedPage) {
+      console.log(scenario)
       setSmsError(scenarioType[scanScenario.unexpectedPage].text)
     }
   }
